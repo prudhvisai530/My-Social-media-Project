@@ -22,6 +22,7 @@ mongoose
     console.error("MongoDB connection error", err);
   });
 
+app.use(helmet());
 app.use(morgan("combined"));
 
 app.use("/api/user", user);
