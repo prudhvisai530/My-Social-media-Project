@@ -11,7 +11,6 @@ const user = require("./Routes/user");
 const auth = require("./Routes/auth");
 
 env.config();
-console.log(process.env.MONGO_DB_URL);
 
 mongoose
   .connect(process.env.MONGO_DB_URL, {})
@@ -22,6 +21,7 @@ mongoose
     console.error("MongoDB connection error", err);
   });
 
+app.use(helmet());
 app.use(morgan("combined"));
 
 app.use("/api/user", user);
