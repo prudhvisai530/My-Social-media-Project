@@ -9,6 +9,7 @@ const morgan = require("morgan");
 
 const user = require("./Routes/user");
 const auth = require("./Routes/auth");
+const posts = require("./Routes/posts");
 
 env.config();
 
@@ -26,6 +27,7 @@ app.use(morgan("combined"));
 
 app.use("/api/user", user);
 app.use("/api/auth", auth);
+app.use("/api/posts", posts);
 
 app.listen(8080, () => {
   console.log("server is running on 8080");
