@@ -31,6 +31,30 @@ const UserSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    profilePicture: {
+      type: String,
+      default:""
+    },
+    coverPicture: {
+      type: String,
+      default: ''
+    },
+    description: {
+    type: String,
+    max:50
+    },
+    city: {
+      type: String,
+      max: 50
+    },
+    from: {
+      type: String,
+      max: 50
+    },
+    relationship: {
+      type: String,
+      enum: ['Single','Married','Complex']
+    }
   },
   { timestamps: true }
 );
