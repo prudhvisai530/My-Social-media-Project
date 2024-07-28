@@ -27,8 +27,10 @@ router.post("/register", async (req, res) => {
 
     // Send response
     res.status(200).json(savedUser);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Internal Server Error", error: error.message });
   }
 });
 
@@ -47,8 +49,10 @@ router.post("/login", async (req, res) => {
       throw createError(400, "Wrong password");
     }
     res.status(200).json(validuser);
-  } catch (err) {
-    res.status(err.status || 500).send(err);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Internal Server Error", error: error.message });
   }
 });
 
