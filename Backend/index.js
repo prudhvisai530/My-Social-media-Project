@@ -11,6 +11,7 @@ const user = require("./Routes/user");
 const auth = require("./Routes/auth");
 
 env.config();
+const port = process.env.port || 3000;
 
 mongoose
   .connect(process.env.MONGO_DB_URL, {})
@@ -27,6 +28,6 @@ app.use(morgan("combined"));
 app.use("/api/user", user);
 app.use("/api/auth", auth);
 
-app.listen(8080, () => {
-  console.log("server is running on 8080");
+app.listen(port, () => {
+  console.log(`server is running on ${port}`);
 });
